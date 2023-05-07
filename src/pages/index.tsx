@@ -1,10 +1,22 @@
 import * as React from "react";
 import { HeadFC, PageProps, graphql } from "gatsby";
 import Layout from "../components/layout";
+import ProductCard from "../components/productCard";
+import ProductsContainer from "../components/productsContainer";
 
-type Product = {
-  id: string;
+export type Product = {
+  id: number;
   title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: Rating;
+};
+
+export type Rating = {
+  rate: number;
+  count: number;
 };
 
 type Data = {
@@ -14,15 +26,18 @@ type Data = {
 };
 
 const IndexPage: React.FC<PageProps<Data>> = ({ data }) => {
+  console.log(data.productList.products[0]);
   if (!data?.productList) return <div>No data</div>;
 
   const { products } = data.productList;
 
   return (
     <Layout pageTitle={"Products page"}>
-      {products.map((product) => {
-        return <p key={product.id}>{product.title}</p>;
-      })}
+      <ProductsContainer>
+        {products.map((product) => {
+          return <ProductCard key={product.id} product={product}></ProductCard>;
+        })}
+      </ProductsContainer>
     </Layout>
   );
 };

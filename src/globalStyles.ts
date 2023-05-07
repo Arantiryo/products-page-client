@@ -1,6 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
+const breakpoints = [480, 768, 992, 1200];
+export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
+
+export const colors = {
+  text: "#191C23",
+  primary: "#1053a0",
+  secondary: "#74b0f4",
+  background: "#B2B9C3",
+};
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
   * {

@@ -1,20 +1,31 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { colors } from "../globalStyles";
 
 const Nav: React.FC = () => {
   return (
     <NavContainer>
       <NavLinks>
         <NavLinkItem>
-          <NavLinkText>
-            <Link to="/">Home</Link>
-          </NavLinkText>
+          <StyledLink
+            to="/"
+            activeStyle={{
+              color: colors.primary,
+            }}
+          >
+            Home
+          </StyledLink>
         </NavLinkItem>
         <NavLinkItem>
-          <NavLinkText>
-            <Link to="/about">About</Link>
-          </NavLinkText>
+          <StyledLink
+            to="/about"
+            activeStyle={{
+              color: colors.primary,
+            }}
+          >
+            About
+          </StyledLink>
         </NavLinkItem>
       </NavLinks>
     </NavContainer>
@@ -22,7 +33,7 @@ const Nav: React.FC = () => {
 };
 
 const NavContainer = styled.nav`
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 `;
 
 const NavLinks = styled.ul`
@@ -35,8 +46,14 @@ const NavLinkItem = styled.ul`
   padding-right: 2rem;
 `;
 
-const NavLinkText = styled.span`
-  color: black;
+const StyledLink = styled((props) => <Link {...props} />)`
+  text-decoration: none;
+  color: ${colors.secondary};
+  transition: color 0.2s;
+
+  :hover {
+    color: ${colors.primary};
+  }
 `;
 
 export default Nav;
