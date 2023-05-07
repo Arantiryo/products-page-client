@@ -20,6 +20,14 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "getProduct",
+        fieldName: "getProduct",
+        url: "http://localhost:4000/",
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "ProductPageJS",

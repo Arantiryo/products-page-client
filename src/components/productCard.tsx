@@ -5,13 +5,14 @@ import { colors, mq } from "../globalStyles";
 
 type ProductCardProps = {
   product: Product;
+  onClick?: () => void;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
   const { title, image, price, rating } = product;
 
   return (
-    <CardContainer>
+    <CardContainer onClick={onClick}>
       <CardContent>
         <CardImageContainer>
           <CardImage src={image} alt={title} />
@@ -53,7 +54,7 @@ const CardContainer = styled.div`
   overflow: hidden;
   position: relative;
   transition: all 0.3s;
-  :hover: {
+  :hover {
     transform: scale(1.05);
   }
   cursor: pointer;

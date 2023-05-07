@@ -1,5 +1,5 @@
 import * as React from "react";
-import { HeadFC, PageProps, graphql } from "gatsby";
+import { HeadFC, Link, PageProps, graphql, navigate } from "gatsby";
 import Layout from "../components/layout";
 import ProductCard from "../components/productCard";
 import ProductsContainer from "../components/productsContainer";
@@ -26,7 +26,6 @@ type Data = {
 };
 
 const IndexPage: React.FC<PageProps<Data>> = ({ data }) => {
-  console.log(data.productList.products[0]);
   if (!data?.productList) return <div>No data</div>;
 
   const { products } = data.productList;
@@ -35,7 +34,13 @@ const IndexPage: React.FC<PageProps<Data>> = ({ data }) => {
     <Layout pageTitle={"Products page"}>
       <ProductsContainer>
         {products.map((product) => {
-          return <ProductCard key={product.id} product={product}></ProductCard>;
+          return (
+            <ProductCard
+              onClick={() => navigate(`products/${product.id}`)}
+              key={product.id}
+              product={product}
+            ></ProductCard>
+          );
         })}
       </ProductsContainer>
     </Layout>
