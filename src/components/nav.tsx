@@ -23,7 +23,7 @@ const Nav: React.FC = () => {
 };
 
 const NavContainer = styled.nav`
-  margin: 2rem 0;
+  padding: 2rem 0;
 `;
 
 const NavLinks = styled.ul`
