@@ -14,9 +14,19 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-graphql",
       options: {
-        typeName: "ProductList",
+        typeName: "productList",
         fieldName: "productList",
         url: "http://localhost:4000/",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "ProductPageJS",
+        short_name: "ProductPageJS",
+        start_url: "/",
+        display: "standalone",
+        icon: "src/images/icon.png", // This path is relative to the root of the site.
       },
     },
   ],

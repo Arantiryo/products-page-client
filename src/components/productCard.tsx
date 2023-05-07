@@ -74,11 +74,11 @@ const CardTitle = styled.h3`
 `;
 
 const CardPrice = styled.h4`
-  text-align: center,
-  font-size: 1.1rem,
-  line-height: 1rem,
-  font-weight: 500,
-  margin-bottom: 1rem,
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
 `;
 
 const CardImageContainer = styled.div`
