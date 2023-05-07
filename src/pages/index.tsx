@@ -1,9 +1,49 @@
 import * as React from "react";
-import { HeadFC, PageProps } from "gatsby";
+import { HeadFC, PageProps, graphql } from "gatsby";
 
-const IndexPage: React.FC<PageProps> = () => {
-  return <div>Products page</div>;
+type Product = {
+  id: string;
+  title: string;
 };
+
+type Data = {
+  productList: {
+    products: Product[];
+  };
+};
+
+const IndexPage: React.FC<PageProps<Data>> = ({ data }) => {
+  if (!data?.productList) return <div>No data</div>;
+
+  const { products } = data.productList;
+
+  return (
+    <div>
+      {products.map((product) => {
+        return <p key={product.id}>{product.title}</p>;
+      })}
+    </div>
+  );
+};
+
+export const query = graphql`
+  {
+    productList {
+      products {
+        id
+        title
+        price
+        description
+        category
+        image
+        rating {
+          rate
+          count
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
 
