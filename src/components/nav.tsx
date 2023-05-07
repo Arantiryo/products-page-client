@@ -8,22 +8,12 @@ const Nav: React.FC = () => {
     <NavContainer>
       <NavLinks>
         <NavLinkItem>
-          <StyledLink
-            to="/"
-            activeStyle={{
-              color: colors.primary,
-            }}
-          >
+          <StyledLink to="/" activeStyle={{ color: colors.primary }}>
             Home
           </StyledLink>
         </NavLinkItem>
         <NavLinkItem>
-          <StyledLink
-            to="/about"
-            activeStyle={{
-              color: colors.primary,
-            }}
-          >
+          <StyledLink to="/about" activeStyle={{ color: colors.primary }}>
             About
           </StyledLink>
         </NavLinkItem>
