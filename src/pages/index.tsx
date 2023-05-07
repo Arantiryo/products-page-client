@@ -1,5 +1,6 @@
 import * as React from "react";
 import { HeadFC, PageProps, graphql } from "gatsby";
+import Layout from "../components/layout";
 
 type Product = {
   id: string;
@@ -18,11 +19,11 @@ const IndexPage: React.FC<PageProps<Data>> = ({ data }) => {
   const { products } = data.productList;
 
   return (
-    <div>
+    <Layout pageTitle={"Products page"}>
       {products.map((product) => {
         return <p key={product.id}>{product.title}</p>;
       })}
-    </div>
+    </Layout>
   );
 };
 
